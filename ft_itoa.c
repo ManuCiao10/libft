@@ -6,7 +6,7 @@
 /*   By: eardingh <eardingh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 17:55:08 by eardingh          #+#    #+#             */
-/*   Updated: 2022/04/02 17:07:45 by eardingh         ###   ########.fr       */
+/*   Updated: 2022/04/03 19:04:32 by eardingh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ char	*ft_itoa(int n)
 
 	len = get_len(n);
 	array = malloc(sizeof(char) * (len + 1));
+	if (array == NULL)
+		return (NULL);
 	array[len] = '\0';
 	if (n < 0)
 		array[0] = '-';

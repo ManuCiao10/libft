@@ -6,7 +6,7 @@
 /*   By: eardingh <eardingh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 13:55:40 by eardingh          #+#    #+#             */
-/*   Updated: 2022/03/31 15:19:25 by eardingh         ###   ########.fr       */
+/*   Updated: 2022/04/03 18:43:39 by eardingh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ char	*ft_strdup(const char *s1)
 	while (s1[i] != '\0')
 		++i;
 	s2 = malloc(sizeof(char) * (i + 1));
+	if (s2 == NULL)
+		return (NULL);
 	i = 0;
 	while (s1[i] != '\0')
 	{

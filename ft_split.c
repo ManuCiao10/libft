@@ -6,11 +6,13 @@
 /*   By: eardingh <eardingh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 14:33:53 by eardingh          #+#    #+#             */
-/*   Updated: 2022/04/01 16:38:22 by eardingh         ###   ########.fr       */
+/*   Updated: 2022/04/03 19:35:47 by eardingh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+void	scarping_variable(size_t *i, size_t *j, int *index);
 
 int	count_words(char const *s, char c)
 {
@@ -38,6 +40,8 @@ char	*word_dup(const char *str, int start, int finish)
 
 	i = 0;
 	word = malloc((finish - start + 1) * sizeof(char));
+	if (word == NULL)
+		return (NULL);
 	while (start < finish)
 		word[i++] = str[start++];
 	word[i] = '\0';
@@ -52,11 +56,11 @@ char	**ft_split(char const *s, char c)
 	char	**split;
 	int		words;
 
+	scarping_variable(&i, &j, &index);
 	words = count_words(s, c) + 1;
 	split = malloc((words) * sizeof(char *));
-	i = 0;
-	j = 0;
-	index = -1;
+	if (split == NULL)
+		return (NULL);
 	while (i <= ft_strlen(s))
 	{
 		if (s[i] != c && index < 0)
@@ -70,4 +74,11 @@ char	**ft_split(char const *s, char c)
 	}
 	split[j] = 0;
 	return (split);
+}
+
+void	scarping_variable(size_t *i, size_t *j, int *index)
+{
+	*i = 0;
+	*j = 0;
+	*index = -1;
 }
