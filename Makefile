@@ -8,6 +8,8 @@ HEADER = $(addsuffix .h, $(addprefix includes/, ))
 
 SRCS_PATH = src/
 
+EPANSION = python3 src/
+
 FTIS = ft_isalnum ft_isalpha ft_isascii ft_isdigit ft_isprint
 FTSKIP = space spacenl char chars
 FTLST = ft_lstadd_back ft_lstadd_front ft_lstclear ft_lstdelone ft_lstiter \
