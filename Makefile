@@ -1,45 +1,54 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: eardingh <eardingh@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/04/02 18:34:20 by eardingh          #+#    #+#              #
-#    Updated: 2022/04/03 18:46:30 by eardingh         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+NAME		= libft.a
 
-NAME = libft.a
+CC			= gcc
+CFLAGS		= -Wall -Wextra -Werror -I includes
+RM			= rm -f
+AR			= ar rcs
+HEADER = $(addsuffix .h, $(addprefix includes/, ))
 
-SRCS = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c \
-ft_isascii.c ft_isdigit.c ft_isprint.c ft_itoa.c ft_lstiter.c \
-ft_memcpy.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c ft_lstmap.c \
-ft_memset.c ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c \
-ft_split.c ft_strchr.c ft_strdup.c ft_strjoin.c ft_strlcat.c ft_strlcpy.c \
-ft_strlen.c ft_strmapi.c ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_strtrim.c \
-ft_tolower.c ft_toupper.c ft_substr.c ft_lstadd_front.c ft_lstadd_back.c \
-ft_lstlast.c ft_lstclear.c ft_lstnew.c ft_lstsize.c ft_lstdelone.c \
- 
+SRCS_PATH = src/
 
-OBJS = ${SRCS:.c=.o}
-CC		= cc
-RM		= rm -f
-CFLAGS = -Wall -Wextra -Werror -g3
+FTIS = ft_isalnum ft_isalpha ft_isascii ft_isdigit ft_isprint
+FTSKIP = space spacenl char chars
+FTLST = ft_lstadd_back ft_lstadd_front ft_lstclear ft_lstdelone ft_lstiter \
+		ft_lstlast ft_lstmap ft_lstnew ft_lstsize
+FTMATH = abs nbrlen hexlen baselen power
+FTMEM = ft_bzero ft_calloc ft_memcpy ft_memchr ft_memcmp ft_memcpy ft_memmove ft_memset
+FTPUT = ft_putchar_fd ft_putendl_fd ft_putnbr_fd ft_putstr_fd
+FTSTR = ft_strchr ft_strncmp ft_strdup ft_strjoin ft_strlcat \
+		ft_strlcpy ft_strlen ft_strmapi ft_strncmp ft_strnstr \
+		ft_strrchr ft_strtrim 
+FTSUB = ft_substr ft_split
+FTTO = ft_tolower ft_toupper ft_atoi ft_itoa ft_char_to_base
+FTLEN = ft_intlen
 
-.c.o:
-		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
-$(NAME): ${OBJS}
-		ar rcs ${NAME} ${OBJS}
 
-all:	${NAME}
+SRCS = $(addsuffix .c, $(addprefix $(SRCS_PATH)ft_is/, $(FTIS))) \
+	$(addsuffix .c, $(addprefix $(SRCS_PATH)ft_lst/, $(FTLST))) \
+	$(addsuffix .c, $(addprefix $(SRCS_PATH)ft_mem/, $(FTMEM))) \
+	$(addsuffix .c, $(addprefix $(SRCS_PATH)ft_put/, $(FTPUT))) \
+	$(addsuffix .c, $(addprefix $(SRCS_PATH)ft_str/, $(FTSTR))) \
+	$(addsuffix .c, $(addprefix $(SRCS_PATH)ft_sub/, $(FTSUB))) \
+	$(addsuffix .c, $(addprefix $(SRCS_PATH)ft_to/, $(FTTO))) \
+	$(addsuffix .c, $(addprefix $(SRCS_PATH)ft_len/, $(FTLEN))) \
+
+OBJS		= $(SRCS:.c=.o)
+BONUS_OBJS		= $(BONUS_SRCS:.c=.o)
+
+$(NAME):	$(OBJS)
+			-@$(AR) $(NAME) $(OBJS)
+
+all:		$(NAME)
+
+bonus:		$(OBJS) $(BONUS_OBJS)
+			-@$(AR) $(NAME) $(OBJ) $(BONUS_OBJS)
 
 clean:
-		${RM} ${OBJS}
+			-@$(RM) $(OBJS) $(BONUS_OBJS)
 
-fclean:	clean
-		${RM} ${NAME}
+fclean:		clean
+			-@$(RM) $(NAME)
 
-re:		fclean all
+re:			fclean all
 
-.PHONY : all clean fclean re
+.PHONY:		all bonus clean fclean re
