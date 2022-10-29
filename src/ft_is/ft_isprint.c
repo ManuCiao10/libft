@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: eardingh <eardingh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/28 11:35:15 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/10/29 03:04:19 by hsaadi           ###   ########.fr       */
+/*   Created: 2022/10/29 13:38:09 by eardingh          #+#    #+#             */
+/*   Updated: 2022/10/29 13:38:10 by eardingh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
 
 #include "../includes/libft.h"
 

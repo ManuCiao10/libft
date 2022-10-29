@@ -22,7 +22,6 @@ FTSUB = ft_substr ft_split
 FTTO = ft_tolower ft_toupper ft_atoi ft_itoa ft_char_to_base
 FTLEN = ft_intlen
 
-
 SRCS = $(addsuffix .c, $(addprefix $(SRCS_PATH)ft_is/, $(FTIS))) \
 	$(addsuffix .c, $(addprefix $(SRCS_PATH)ft_lst/, $(FTLST))) \
 	$(addsuffix .c, $(addprefix $(SRCS_PATH)ft_mem/, $(FTMEM))) \

@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: eardingh <eardingh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/25 12:58:30 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/10/29 03:04:19 by hsaadi           ###   ########.fr       */
+/*   Created: 2022/10/29 13:38:28 by eardingh          #+#    #+#             */
+/*   Updated: 2022/10/29 13:38:29 by eardingh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
 
 #include "../includes/libft.h"
 
